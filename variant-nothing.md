@@ -36,6 +36,6 @@ void VBScript_SetNothing(VARIANT* value)
 {
   VariantInit(value);
   value->vt = VT_DISPATCH;
-  V_DISPATCH(&value) = NULL;
+  V_DISPATCH(value) = NULL;
 }
 ```
