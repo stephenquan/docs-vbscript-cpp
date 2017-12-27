@@ -1,7 +1,24 @@
-Use the following code to return `Nothing` to `VBScript`:
+# Nothing
+
+Represents an object in VBScript that contains no value. Setting objects to this value can be used to release or destroy COM objects.
+
+## Receiving Nothing in C++ from VBScript
+
+Here'll you see that VBScript passes in the `Nothing` object with as `VT_DISPATCH`.
 
 ```c++
-void VBScriptNothing(VARIANT* value)
+bool VBScript_IsNothing(VARIANT* value)
+{
+  return value && value->vt == VT_DISPATCH && V_DISPATCH(value) == NULL;
+}
+```
+
+## Returning Nothing from C++ to VBScript
+
+You'll see that the `Nothing` object is actually typed `VT_DISPATCH` instead of `VT_NULL` or `VT_EMPTY`. This furthers the idea that `Nothing` is an object. Also, it furthers the idea that we prefer to return `VT_DISPATCH` to VBScript instead of `VT_UNKNOWN`.
+
+```c++
+void VBScript_SetNothing(VARIANT* value)
 {
   VariantInit(value);
   value->vt = VT_DISPATCH;
