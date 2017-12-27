@@ -1,6 +1,6 @@
 # Nothing
 
-Represents an object in VBScript that contains no value. Setting objects to this value can be used to release or destroy COM objects.
+Represents an object in VBScript that contains no value. Setting objects to this value can be used to release COM objects.
 
 ## Receiving Nothing in C++ from VBScript
 
