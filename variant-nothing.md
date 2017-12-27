@@ -6,7 +6,7 @@ Represents an object in VBScript that contains no value. Setting objects to this
 
 The following causes `msxml3.dll` to be loaded and the `IXMLDOMDocument` COM object to be created and used. Setting the object to `Nothing` allows the COM object to be released. Should `CoFreeUnusedLibrary` be called, `msxml3.dll` can be unloaded.
 
-```Visual Basic
+```vbs
 Sub TestXML
   Set dom = CreateObject("Microsoft.XMLDOM")
   dom.loadXML "<Hello><World/></Hello>"
