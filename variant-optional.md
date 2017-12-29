@@ -9,7 +9,7 @@ Here'll you see that VBScript passes in optional argument as `VT_ERROR`.
 ```c++
 bool VBScript_IsOptional(VARIANT* value)
 {
-  return value && value->vt == VT_ERROR && value->scode == DISP_E_PARAMNOTFOUND;
+  return value && value->vt == VT_ERROR && V_ERROR(value) == DISP_E_PARAMNOTFOUND;
 }
 ```
 
@@ -22,7 +22,7 @@ void VBScript_SetOptional(VARIANT* value)
 {
   VariantInit(value);
   value->vt = VT_ERROR;
-  value->scode = DISP_E_PARAMNOTFOUND;
+  V_ERROR(value) = DISP_E_PARAMNOTFOUND;
 }
 ```
 
